@@ -15,7 +15,7 @@ public class TestSelenium {
 		
 		System.setProperty("webdriver.chrome.driver", "full_path_to_chromedriver_on_your_drive");
 		WebDriver driver = new ChromeDriver();
-		driver.get("https://www.umt.edu.my");
+		driver.get("https://tanzil.net");
 		System.out.println(driver.getTitle());
 		driver.quit();
 	}
