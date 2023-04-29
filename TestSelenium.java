@@ -2,7 +2,7 @@
 // CODE SAMPLE
 // ++++++++++++
 // This is a test automation script. This script will open Chrome browser, 
-// navigate to https://www.umt.edu.my, get the page title and output the title 
+// navigate to tanzil.net, get the page title and output the title 
 // in the eclipse console. Finally it will close the Chrome browser.
 
 package day1;
