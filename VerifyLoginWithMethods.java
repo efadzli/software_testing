@@ -14,37 +14,42 @@ public class VerifyLogin {
 
 	public static void main(String[] args) {
 		
-		System.setProperty("webdriver.chrome.driver", "/Users/efadzli/Downloads/chromedriver");
+		//Create WebDriver
+		System.setProperty("webdriver.chrome.driver", "full_path_to_chromedriver_on_your_drive");
 		WebDriver driver = new ChromeDriver();
+		
+		//Maximize windows
 		driver.manage().window().maximize();
 		
-		testLogin(driver,"TC01","adam","adam123","Congratulations!");
-		testLogin(driver,"TC02","john","xxxx","Login failed! Please try again.");
+		//Execute test cases
+		testLogin(driver,"TC01","correct_username","correct_password","expected_output");
+		testLogin(driver,"TC02","wrong_username","wrong_password","expected_output");
 		
-		
+		//Close WebDriver
 		driver.quit();
 	}
 	
 	static void testLogin(WebDriver driver, String tc_id, String uname, String pass, String expected_output) {
 
-		driver.get("http://efadzli.com/software_testing/index.php?view=user_login");
+		//Pre-condition: Go to URL to load the page
+		driver.get("full_url_to_login_page");
 		
 		System.out.println("Testing started for Test Case ID "+tc_id);
 		
-		//key in username and password
+		//Test Procedure: Key in test data (username and password)
 		driver.findElement(By.id("username")).sendKeys(uname);
 		driver.findElement(By.id("password")).sendKeys(pass);
 		
-		//click submit button
+		//Test Procedure: Click submit button
 		driver.findElement(By.name("submitButton")).click();
 		
-		//get status
+		//Verify expected output
 		String status = driver.findElement(By.id("status")).getText();
-		System.out.print("Test Case "+tc_id+": ");
+		System.out.print("Test Result: ");
 		if(status.equals(expected_output)) 
-			System.out.println("Testing successful.");
+			System.out.println("Success.");
 		else
-			System.out.println("Testing failed.");
+			System.out.println("Failed.");
 		
 	}
 }
