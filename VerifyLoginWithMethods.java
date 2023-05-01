@@ -44,12 +44,11 @@ public class VerifyLogin {
 		driver.findElement(By.name("submitButton")).click();
 		
 		//Verify expected output
-		String status = driver.findElement(By.id("status")).getText();
-		System.out.print("Test Result: ");
-		if(status.equals(expected_output)) 
-			System.out.println("Success.");
+		String ActualOutput = driver.findElement(By.id("status")).getText();
+		if(ActualOutput.equals(expected_output)) 
+			System.out.println("Test Result: Success.");
 		else
-			System.out.println("Failed.");
+			System.out.println("Test Result: Failed.");
 		
 	}
 }
