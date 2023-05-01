@@ -18,20 +18,20 @@ public class VerifyLogin {
 	public static void main(String[] args) {
 		
 		//Create WebDriver
-		System.setProperty("webdriver.chrome.driver", "/Users/efadzli/Downloads/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "full_path_to_chromedriver_on_your_drive");
 		WebDriver driver = new ChromeDriver();
 		
 		//Maximize windows
 		driver.manage().window().maximize();
 		
 		//Pre-condition: Go to URL to load the page
-		driver.get("http://efadzli.com/software_testing/index.php?view=user_login");
+		driver.get("full_url_to_login_page");
 		
 		System.out.println("Testing started for Test Case ID TC01");
 		
 		//Test Procedure: Key in test data (username and password)
-		driver.findElement(By.id("username")).sendKeys("adam");
-		driver.findElement(By.id("password")).sendKeys("adam123");
+		driver.findElement(By.id("username")).sendKeys("correct_username");
+		driver.findElement(By.id("password")).sendKeys("correct_password");
 		
 		//Test Procedure: Click submit button
 		driver.findElement(By.name("submitButton")).click();
